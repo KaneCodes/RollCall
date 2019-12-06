@@ -26,10 +26,8 @@ $num = $statement->rowCount();
 
 <!-- Table Heading -->
 <h5>Company Staff</h5>
-<!-- Control Buttons -->
+<!-- Add Member -->
 <a href="add.php"><button class="button-primary">Add Member</button></a>
-<button>Update Member</button>
-<button>Delete Member</button>
 <!-- Main Table -->
 <table class="u-full-width">
       <thead>
@@ -39,7 +37,9 @@ $num = $statement->rowCount();
           <th>Gender</th>
           <th>Position</th>
           <th>Salary</th>
-          <th>Holidays Remaining</th>
+          <th>Holidays</th>
+          <th>     </th>
+          <th>     </th>
         </tr>
       </thead>
       <tbody>
@@ -59,6 +59,8 @@ $num = $statement->rowCount();
               echo "<td>{$position}</td>";
               echo "<td>{$salary}</td>";
               echo "<td>{$holidays}</td>";
+              echo "<td><button>Update</button></td>";
+              echo "<td><button>Delete</button></td>";
             echo "</tr>";
           }
         }
