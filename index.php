@@ -1,4 +1,9 @@
-<?php include "templates/header.php"; ?>
+<?php include "templates/header.php";
+      require "functions.php";
+
+      
+?>
+
  
         <!-- Table Heading -->
         <h5>Company Staff</h5>
