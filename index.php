@@ -1,47 +1,70 @@
-<?php include "templates/header.php";
-      require "functions.php";
+<?php 
+// Requirements & Includes
+include "templates/header.php";
+require 'config/database.php';
+require 'functions.php';
 
-      
+// Connect to database
+try {
+  $connect = new PDO($dsn, $username, $password, $options);
+}
+// Error Message
+catch(PDOException $exception){
+  echo "Connection error: " . $exception->getMessage();
+}
+
+// Select all results
+$query = "SELECT * FROM staff";
+// Prepare statement
+$statement = $connect->prepare($query);
+// Execute statement
+$statement->execute();
+// Get number of rows
+$num = $statement->rowCount();
+
 ?>
 
- 
-        <!-- Table Heading -->
-        <h5>Company Staff</h5>
-        <!-- Control Buttons -->
-        <a href="add.php"><button class="button-primary">Add Member</button></a>
-        <button>Update Member</button>
-        <button>Delete Member</button>
-        <!-- Main Table -->
-        <table class="u-full-width">
-                <thead>
-                  <tr>
-                    <th>Full Name</th>
-                    <th>Address</th>
-                    <th>Gender</th>
-                    <th>Position</th>
-                    <th>Salary</th>
-                    <th>Holidays Remaining</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Dave Gamache</td>
-                    <td>Essex</td>
-                    <td>Male</td>
-                    <td>Class 2 Driver</td>
-                    <td>£28,000</td>
-                    <td>5</td>
-                  </tr>
-                  <tr>
-                    <td>Dwayne Johnson</td>
-                    <td>Essex</td>
-                    <td>Male</td>
-                    <td>Class 1 Driver</td>
-                    <td>£35,000</td>
-                    <td>20</td>
-                  </tr>
-                </tbody>
-              </table>
+<!-- Table Heading -->
+<h5>Company Staff</h5>
+<!-- Control Buttons -->
+<a href="add.php"><button class="button-primary">Add Member</button></a>
+<button>Update Member</button>
+<button>Delete Member</button>
+<!-- Main Table -->
+<table class="u-full-width">
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Address</th>
+          <th>Gender</th>
+          <th>Position</th>
+          <th>Salary</th>
+          <th>Holidays Remaining</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+        <?php
+        //Check if more than 0 records found
+        if($num>0){
+        
+          while ($row = $statement->fetch(PDO::FETCH_ASSOC)){
+            // Extract Rows
+            extract($row);
+            // Insert data into table
+            echo "<tr>";
+              echo "<td>{$firstName} " .  "{$lastName}</td>";
+              echo "<td>{$address}</td>";
+              echo "<td>{$gender}</td>";
+              echo "<td>{$position}</td>";
+              echo "<td>{$salary}</td>";
+              echo "<td>{$holidays}</td>";
+            echo "</tr>";
+          }
+        }
+        ?>
+      </tbody>
+    </table>
+  </div>
 
-    </div>
 <?php include "templates/footer.php"; ?>
