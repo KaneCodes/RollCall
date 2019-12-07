@@ -2,10 +2,9 @@
 // Requirements & Includes
 include "templates/header.php";
 require 'config/database.php';
-require 'functions.php';
 
-// Connect to database
 try {
+  // Connect to database
   $connect = new PDO($dsn, $username, $password, $options);
 }
 // Error Message
