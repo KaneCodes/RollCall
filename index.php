@@ -58,7 +58,7 @@ $num = $statement->rowCount();
               echo "<td>{$position}</td>";
               echo "<td>{$salary}</td>";
               echo "<td>{$holidays}</td>";
-              echo "<td><button>Update</button></td>";
+              echo "<td><a href='edit.php?id={$id}'><button>Edit</button></a></td>";
               echo "<td><button>Delete</button></td>";
             echo "</tr>";
           }
