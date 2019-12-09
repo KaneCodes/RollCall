@@ -1,7 +1,8 @@
 <?php 
-// Requirements & Includes
-include "templates/header.php";
-require 'config/database.php';
+
+// Includes & Requirements
+include "templates/header.php"; 
+require "config/database.php";
 
 try {
   // Connect to database
@@ -59,10 +60,18 @@ $num = $statement->rowCount();
               echo "<td>{$salary}</td>";
               echo "<td>{$holidays}</td>";
               echo "<td><a href='edit.php?id={$id}'><button>Edit</button></a></td>";
-              echo "<td><button>Delete</button></td>";
+              echo "<td><button onclick='deleteStaff({$id});'>Delete</button></td>";
             echo "</tr>";
           }
         }
+
+        $action = isset($_GET['action']) ? $_GET['action'] : "";
+
+        if($action=='deleted') {
+          echo "<h5>Record Deleted</h5>";
+        }
+
+
         ?>
       </tbody>
     </table>

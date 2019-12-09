@@ -1,7 +1,7 @@
-<?php include "templates/header.php" ?>
 <?php 
 
-// Requirements
+// Includes & Requirements
+include "templates/header.php";
 require "config/database.php";
 
 // Check POST variable
@@ -75,10 +75,6 @@ if (isset($_GET['id'])) {
       echo "Something went wrong!";
       exit;
   }
-
-
-
-
 ?>
 <!-- Page Heading -->
 <?php echo "<h5>Edit Staff Member - {$firstName} " . " {$lastName}</h5>"; ?>

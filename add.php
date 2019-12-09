@@ -1,10 +1,10 @@
-<?php require "templates/header.php"; ?>
-
 <?php 
 
+// Includes & Requirements
+include "templates/header.php"; 
+require "config/database.php";
+
 if(isset($_POST['submit'])) {
-    // Requirements
-    require 'config/database.php';
     
     try {
         // Connect to database
