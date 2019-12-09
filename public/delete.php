@@ -2,7 +2,7 @@
 
 // Includes & Requirements
 include "templates/header.php"; 
-require "config/database.php";
+require "../config/database.php";
 
 try {
     // Connect to database
@@ -34,4 +34,4 @@ catch(PDOException $error) {
 
 ?>
 
-<?php include "templates/footer.php" ?>
+<?php include "../templates/footer.php" ?>

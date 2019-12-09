@@ -1,3 +1,4 @@
 config/datebase.php
 ../config/database.php
 database.php
+.DS_STORE

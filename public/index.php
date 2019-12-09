@@ -2,7 +2,7 @@
 
 // Includes & Requirements
 include "templates/header.php"; 
-require "config/database.php";
+require "../config/database.php";
 
 try {
   // Connect to database
@@ -27,7 +27,7 @@ $num = $statement->rowCount();
 <!-- Table Heading -->
 <h5>Company Staff</h5>
 <!-- Add Member -->
-<a href="add.php"><button class="button-primary">Add Member</button></a>
+<a href="padd.php"><button class="button-primary">Add Member</button></a>
 <!-- Main Table -->
 <table class="u-full-width">
       <thead>

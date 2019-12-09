@@ -2,7 +2,7 @@
 
 // Includes & Requirements
 include "templates/header.php";
-require "config/database.php";
+require "../config/database.php";
 
 // Check POST variable
 if(isset($_POST['submit'])) {
